@@ -1,7 +1,7 @@
 from decimal import Decimal
 import simplejson as json
 import requests
-from .converter import RatesNotAvailableError, DecimalFloatMismatchError
+from converter import RatesNotAvailableError, DecimalFloatMismatchError
 
 
 class BtcConverter(object):
