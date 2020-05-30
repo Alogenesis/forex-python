@@ -60,6 +60,8 @@ def first_menu():
 
 def input_first_menu():
     loop_set = 0
+    welcome_message()
+    first_menu()
     while loop_set == 0:
         user_input = int(input('Menu Number >> '))
         if user_input == 1:
@@ -86,7 +88,28 @@ def input_first_menu():
         else:
             print('Invalid Menu Number, please select again')
 
+def currency_list():
+    print('Please Select Currency in List')
+    print('''---------
+THB  USD  EUR  JPY
+HKD  INR  CHF  MXN
+input 0 back to main menu
+---------''')
 
+def currency_converter():
+    while_loop = 1
+    while while_loop == 1:
+        currency_list()
+        user_currency = input('Your currency >>').upper()
+        if user_currency == '0':
+            while_loop = 0
+            print('Back to main menu')
+            input_first_menu()
+        else:
+            user_value = float(input('Input value (0 or more) >>'))
+            convert_to_currency = input('Need to convert to >>').upper()
+            print('{} {} = {} {}'.format(user_value, user_currency, c.convert(user_currency, convert_to_currency, user_value), convert_to_currency))
+            print('------------------------------------------')
 
 
 
@@ -121,13 +144,24 @@ print(one_bitcoin_price())
 print("-" * 50)
 print('money_convert_bitcoin(THB)')
 print(money_convert_bitcoin())
+
+currency_converter()
 '''
 
-''' Menu Part '''
+
+
+'''Menu Part'''
 welcome_message()
 first_menu()
-user_input = input_first_menu()
+user_input = int(input('Menu Number >>'))
 if user_input == 1:
-    print('Going to Menu 1')
+    print('--- Menu 1 Currency converter ---')
+    currency_converter()
 elif user_input ==2:
     print('Going to Menu 2')
+elif user_input ==3:
+    print('Going to Menu 3')
+elif user_input ==4:
+    print('Going to Menu 4')
+elif user_input ==5:
+    print('Going to Menu 5')
